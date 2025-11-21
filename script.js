@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    
+    // ⚠️ SUA URL CSV PUBLICADA (Planilha Google)
     const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vR4UYJgaHtWLW0cjjvyaexPmL7atrFWNCaj6BHwn6k8ZQP90a2ViAWonJSgP0nKCIM5L4BrCZ7KWiLU/pub?gid=1842449585&single=true&output=csv'; 
 
     const carrosselContainer = document.getElementById('carrossel-container');
@@ -119,6 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             
             // Filtra e converte o campo 'ativo'
+            // O CSV retorna "TRUE" ou "FALSE" como texto, mas queremos apenas os ativos
             if (vehicle.ativo && (vehicle.ativo.toUpperCase() === 'TRUE' || vehicle.ativo.toUpperCase() === 'SIM')) {
                 result.push(vehicle);
             }
@@ -156,6 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
             carroSlide.className = 'carrossel-slide';
             carroSlide.setAttribute('data-index', index);
             
+            // ATENÇÃO: veiculo.foto_url deve ser uma URL pública da sua imagem
             carroSlide.innerHTML = `
                 <img src="${veiculo.foto_url}" alt="${veiculo.modelo}" class="carro-foto">
                 <div class="info-overlay">
