@@ -1,16 +1,14 @@
 backend:
   name: github
-  repo: rpollon/kiosk-vendas
+   repo: rpollon/kiosk-vendas
   branch: main 
 
-local_backend: false 
-
-# Configurações de Mídia (Sem Indentação)
-media_folder: 'static/img' 
-public_folder: '/static/img' 
-
-# Fluxo Editorial (Sem Indentação)
+# Fluxo Editorial
 publish_mode: editorial_workflow 
+
+# Caminhos de Mídia (CRÍTICO: Ajustado para refletir o caminho do repositório)
+media_folder: 'static/img' # Onde os arquivos são salvos no Git
+public_folder: '/static/img' # O caminho de URL público para estas imagens
 
 collections:
   - name: 'veiculos' 
@@ -21,10 +19,9 @@ collections:
     create: true 
     delete: true 
     slug: '{{modelo}}' 
-    
+
     fields: 
       - {label: 'Modelo do Veículo', name: 'modelo', widget: 'string', required: true}
       - {label: 'Valor', name: 'valor', widget: 'string', pattern: ['^R\$ [0-9]{1,3}(\.[0-9]{3})*(\,[0-9]{2})?$', 'Ex: R$ 50.000,00'], hint: 'Sempre no formato "R$ X.XXX,XX"'}
       - {label: 'URL da Foto', name: 'foto_url', widget: 'image', required: true} 
-
       - {label: 'Ativo para Kiosk?', name: 'ativo', widget: 'boolean', default: true, hint: 'Desmarque para ocultar o carro do carrossel.'}
