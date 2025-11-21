@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiosk Vendas - Veículos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="fullscreen-prompt">
+        <button id="iniciarKiosk">Toque para Iniciar o Catálogo (Tela Cheia)</button>
+    </header>
+
+    <div id="carrossel-container">
+        </div>
+
+    <div id="lead-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Quase lá!</h2>
+            <p>Deixe seus dados e um vendedor entrará em contato em instantes.</p>
+            <form id="lead-form">
+                <input type="text" id="lead-nome" placeholder="Seu Nome Completo" required>
+                <input type="tel" id="lead-telefone" placeholder="Seu WhatsApp/Telefone" required>
+                <input type="hidden" id="carro-interesse">
+                <button type="submit" id="enviar-lead">Enviar e Falar com Vendedor</button>
+            </form>
+            <p class="sucesso-msg" style="display: none;">Obrigado! Entraremos em contato!</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

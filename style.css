@@ -1,0 +1,179 @@
+/* RESET BÁSICO E KIOSK */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth; /* Adiciona rolagem suave */
+}
+
+body, html {
+    height: 100%;
+    overflow: hidden; 
+    font-family: 'Roboto', sans-serif; /* Use uma fonte moderna */
+    background-color: #000;
+}
+
+/* Prompt Inicial para Fullscreen */
+.fullscreen-prompt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #17202A; /* Fundo mais escuro e elegante */
+}
+
+#iniciarKiosk {
+    padding: 30px 60px;
+    font-size: 30px;
+    cursor: pointer;
+    border: none;
+    border-radius: 12px;
+    background-color: #2ECC71; /* Cor de destaque agradável */
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(46, 204, 113, 0.5);
+    transition: background-color 0.3s;
+}
+
+#iniciarKiosk:hover {
+    background-color: #27AE60;
+}
+
+/* CARROSSEL PRINCIPAL COM AUTOPLAY E SCROLL-SNAP */
+#carrossel-container {
+    display: flex;
+    height: 100vh;
+    overflow-x: scroll; /* Permite a rolagem horizontal */
+    scroll-snap-type: x mandatory; /* Garante que pare em cada item */
+    -webkit-overflow-scrolling: touch; 
+}
+
+.carrossel-item {
+    min-width: 100vw; 
+    height: 100vh;
+    scroll-snap-align: start;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+/* OVERLAY DO CONTEÚDO (Informações + Botão) */
+.conteudo-overlay {
+    /* Gradiente sutil para garantir contraste do texto */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
+    padding: 4vh 4vw; 
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; 
+    width: 100%;
+}
+
+.info-veiculo {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra para visibilidade */
+    max-width: 60%; /* Limita para não brigar com o botão */
+}
+
+/* MODELO E VALOR (Fonte Grande para Boa Visibilidade) */
+.modelo-veiculo {
+    font-size: 5vw; 
+    font-weight: 900; /* Extra bold */
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+
+.valor-veiculo {
+    font-size: 5vw; 
+    font-weight: 900;
+    margin-top: 1vh;
+    color: #FFD700; /* Dourado para destacar o preço */
+}
+
+/* BOTÃO DE AÇÃO */
+.botao-interesse {
+    background-color: #E74C3C; /* Vermelho/Laranja vibrante (Call-to-Action) */
+    color: white;
+    border: none;
+    padding: 2.5vw 4vw; 
+    font-size: 3.5vw; 
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    white-space: nowrap; 
+    text-transform: uppercase;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.botao-interesse:hover {
+    background-color: #C0392B;
+    transform: translateY(-2px);
+}
+
+/* MODAL (Mantenho o estilo do modal simples, mas melhoro o CTA) */
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    padding: 40px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.close-button {
+    color: #333;
+    font-size: 36px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+#lead-form input {
+    width: 100%;
+    padding: 18px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 18px;
+}
+
+#enviar-lead {
+    background-color: #2ECC71;
+    color: white;
+    font-weight: bold;
+    padding: 18px;
+    border: none;
+    margin-top: 20px;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+.sucesso-msg {
+    color: #2ECC71;
+    font-weight: bold;
+    text-align: center;
+    font-size: 24px;
+    padding: 20px 0;
+}
